@@ -37,58 +37,6 @@
         }
     }
 
-    .loading {
-        left: 50%;
-        top: -1rem;
-        position: absolute;
-        transform: translate(-50%, -50%);
-        z-index: 10;
-        transform-origin: center;
-        animation: spinner 1.5s infinite linear;
-        visibility: hidden;
-        opacity: 0;
-
-        &.show {
-            top: 50%;
-            visibility: visible;
-            opacity: 1;
-        }
-    }
-}
-
-@keyframes loading {
-    0% {
-        width: 0%;
-    }
-
-    50% {
-        width: 50%;
-    }
-
-    100% {
-        width: 100%;
-    }
-}
-
-@keyframes spinner {
-    from {
-        transform: rotate(0);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-/** Responsive Table */
-@media (min-width: 640px) {
-    table {
-        display: inline-table !important;
-    }
-
-    thead tr:not(:first-child) {
-        display: none;
-    }
 }
 
 /** Message alert */
