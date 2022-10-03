@@ -8,52 +8,53 @@
     <meta name="author" content="Global3">
     <meta name="description" content="">
 
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
     <!-- Main Style -->
     <link href="./css/style.css" rel="stylesheet">
 </head>
 
-<body class="bg-white font-family-karla h-screen">
+<body class="bg-white font-century h-screen">
 
     <div class="w-full flex flex-wrap h-screen">
 
         <!-- Login Section -->
         <div
-            class="w-full md:w-1/2 lg:w-1/2 xl:w-2/5 flex flex-col relative plannet-login-section bg-white bg-plannet-login-mob bg-contain bg-no-repeat bg-bottom sm:bg-none">
+            class="w-full md:w-1/2 lg:w-1/2 xl:w-2/5 flex flex-col relative plannet-login-section bg-ariztia-log bg-cover bg-plannet-login-mob bg-no-repeat bg-center">
 
             <div
                 class="flex flex-col justify-center md:justify-start mt-14 md:my-auto pt-8 md:pt-0 px-8 md:px-24 lg:px-32">
-                <a href="#" class="p-4 mb-5"><img class="w-52 mx-auto" src="./img/logo_plannet.png" width="200"
-                        height="60"></a>
-                <p class="text-center text-2xl md:text-3xl text-plannet-purple">Ingresar al portal de pago.</p>
+                <a href="#" class="p-4 mb-5"><img class="w-52 mx-auto" src="./img/logo.png" width="200" height="60"></a>
+                <p class="text-center text-2xl md:text-3xl text-ariztia-red">Actualiza tus datos.</p>
                 <form id="form-log" class="flex flex-col pt-3 md:pt-8" onsubmit="event.preventDefault();">
                     <div class="flex flex-col pt-4">
-                        <label for="rut" class="text-lg text-plannet-purple">Rut del cliente</label>
-                        <input type="text" id="rut" placeholder="Ej: 1.111.111-1" onkeypress="return isNumber(event)"
-                            oninput="checkRut(this)" required
-                            class="appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight">
+                        <label for="telefono" class="text-lg">Nº Teléfono</label>
+                        <input type="text" id="telefono" placeholder="Ej: +56 9 1234 5678"
+                            class="appearance-none border border-black rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight">
                         <div id="alerta">
-                            <div id="mensaje" class="text-sm text-blue-500"></div>
+                            <div class="errorTelefono text-sm text-ariztia-red"></div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col pt-4">
+                        <label for="email" class="text-lg">Correo Electrónico</label>
+                        <input type="text" id="email" placeholder="Ej: luis@gmail.com"
+                            class="appearance-none border border-black rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight">
+                        <div id="alerta">
+                            <div class="errorEmail text-sm text-ariztia-red"></div>
                         </div>
                     </div>
                     <div class="btn w-full mt-8 relative">
-                        <input type="submit" value="Buscar" id="submit"
-                            class="w-full bg-plannet-green text-white font-bold text-lg cursor-pointer px-2 h-12">
+                        <input type="submit" value="Actualizar datos" id="submit"
+                            class="w-full bg-ariztia-red hover:bg-ariztia-red-dark text-white font-bold text-lg cursor-pointer px-2 h-12">
                     </div>
+                    <div id="message" class="message"></div>
                 </form>
             </div>
-
-            <!-- Whatsapp -->
-            <a href="https://api.whatsapp.com/send/?phone=56936954627&text&app_absent=0"
-                class="btn-wtsp absolute bottom-8 left-8 bg-plannet-green-dark py-2 px-5 flex items-center rounded-full"
-                target="_blank" rel="noopener">
-                <img src="./img/whatsapp.svg" width="25" height="25">
-                <span class="text-white text-lg ml-3">Contáctanos</span>
-            </a>
 
         </div>
 
         <!-- Image Section -->
-        <div class="hidden md:block md:w-1/2 xl:w-3/5 bg-plannet-welcome bg-cover"></div>
+        <div class="hidden md:block md:w-1/2 xl:w-3/5 bg-ariztia-welcome bg-cover"></div>
     </div>
 
     <!-- Main Scripts -->

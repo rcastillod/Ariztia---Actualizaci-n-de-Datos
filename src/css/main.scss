@@ -1,3 +1,14 @@
+:root {
+    --primary-color: hsl(0, 100%, 50%);
+    --primary-color-shade: hsl(2, 97%, 44%);
+    --success-color: hsl(81, 97%, 24%);
+}
+
+@font-face {
+    font-family: "Century Gothic";
+    src: url("../fonts/SansSerifFLF.otf");
+}
+
 *:focus {
     outline: none;
 }
@@ -5,6 +16,7 @@
 /** Submit Animation */
 .btn {
     position: relative;
+
     &:after {
         content: "";
         width: 0%;
@@ -16,6 +28,7 @@
         transition: all 3s;
         z-index: 2;
     }
+
     &.submit {
         &:after {
             animation: loading 3s;
@@ -23,6 +36,7 @@
             animation-delay: 0.2s;
         }
     }
+
     .loading {
         left: 50%;
         top: -1rem;
@@ -33,6 +47,7 @@
         animation: spinner 1.5s infinite linear;
         visibility: hidden;
         opacity: 0;
+
         &.show {
             top: 50%;
             visibility: visible;
@@ -40,13 +55,16 @@
         }
     }
 }
+
 @keyframes loading {
     0% {
         width: 0%;
     }
+
     50% {
         width: 50%;
     }
+
     100% {
         width: 100%;
     }
@@ -56,6 +74,7 @@
     from {
         transform: rotate(0);
     }
+
     to {
         transform: rotate(360deg);
     }
@@ -72,7 +91,32 @@
     }
 }
 
-/** Botón Whtasapp */
-.btn-wtsp {
-    box-shadow: 0 13px 16px -12px rgba(18, 58, 46, .5);
+/** Message alert */
+.message {
+    background-color: var(--primary-color);
+    color: white;
+    gap: .625rem;
+    opacity: 0;
+    padding: .9375rem;
+    position: absolute;
+    left: 1.25rem;
+    bottom: 1.25rem;
+    width: 90%;
+    visibility: hidden;
+    transition: transform .3s ease-in-out;
+    transform: translateY(0.625rem);
+}
+
+.message.exito {
+    background-color: var(--success-color)
+}
+
+.message.error {
+    background-color: var(--primary-color)
+}
+
+.message.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
 }
