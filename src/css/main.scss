@@ -1,38 +1,78 @@
-//All styles can be added here.
-.hero-heading{
-    @apply text-4xl mb-10 text-white font-medium;
+*:focus {
+    outline: none;
 }
 
-.instructions{    
-    .sub-title{
-        @apply text-gray-900 pb-2 border-b-2 border-gray-400 mb-5 text-xl font-medium;
-
-        & + p {
-            @apply mb-3
+/** Submit Animation */
+.btn {
+    position: relative;
+    &:after {
+        content: "";
+        width: 0%;
+        height: 3rem;
+        position: absolute;
+        background: #309778;
+        top: 0;
+        left: 0;
+        transition: all 3s;
+        z-index: 2;
+    }
+    &.submit {
+        &:after {
+            animation: loading 3s;
+            animation-fill-mode: forwards;
+            animation-delay: 0.2s;
         }
     }
-    .code{
-        @apply block font-mono border rounded bg-gray-100 text-gray-700 px-4 py-5 leading-normal text-sm shadow;
-
-        &.pre{
-            @apply whitespace-pre;
-        }
-
-        em{
-            @apply opacity-75;
+    .loading {
+        left: 50%;
+        top: -1rem;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        z-index: 10;
+        transform-origin: center;
+        animation: spinner 1.5s infinite linear;
+        visibility: hidden;
+        opacity: 0;
+        &.show {
+            top: 50%;
+            visibility: visible;
+            opacity: 1;
         }
     }
-
+}
+@keyframes loading {
+    0% {
+        width: 0%;
+    }
+    50% {
+        width: 50%;
+    }
+    100% {
+        width: 100%;
+    }
 }
 
-.social{
-    @apply block pt-6 text-gray-700;
-
-    a{
-        @apply text-blue-500 font-medium p-4;
-
-        &:hover{
-            @apply text-blue-700;
-        }
+@keyframes spinner {
+    from {
+        transform: rotate(0);
     }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/** Responsive Table */
+@media (min-width: 640px) {
+    table {
+        display: inline-table !important;
+    }
+
+    thead tr:not(:first-child) {
+        display: none;
+    }
+}
+
+/** Botón Whtasapp */
+.btn-wtsp {
+    box-shadow: 0 13px 16px -12px rgba(18, 58, 46, .5);
 }

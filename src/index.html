@@ -1,90 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Gulp with TailwindCSS</title>
-    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <title>Ariztia - Actualización de datos</title>
+    <meta name="author" content="Global3">
+    <meta name="description" content="">
+
+    <!-- Main Style -->
+    <link href="./css/style.css" rel="stylesheet">
 </head>
-<body class="bg-gray-200">
-    <header class="p-20 bg-gradient-to-r from-red-400 via-red-500 to-pink-500 text-center">
-        <h1 class="hero-heading">Gulp with TailwindCSS Kit</h1>
-        <p class="w-full text-center text-white text-xl leading-5 mb-10">Updated with Tailwind 2.0, PostCss 8.0+</p>
-        <div class="py-15 flex justify-center space-x-6">
-            <a class="github-button" href="https://github.com/manjumjn" data-show-count="true" aria-label="Follow @manjumjn on GitHub">Follow @manjumjn</a>
-            <a class="github-button" href="https://github.com/manjumjn/gulp-with-tailwindcss" data-icon="octicon-star" data-show-count="true" aria-label="Star manjumjn/gulp-with-tailwindcss on GitHub">Star</a>
-            <a class="github-button" href="https://github.com/manjumjn/gulp-with-tailwindcss/fork" data-icon="octicon-repo-forked" data-show-count="true" aria-label="Fork manjumjn/gulp-with-tailwindcss on GitHub">Fork</a>
-            <a class="github-button" href="https://github.com/manjumjn/gulp-with-tailwindcss/archive/master.zip" data-icon="octicon-cloud-download" aria-label="Download manjumjn/gulp-with-tailwindcss on GitHub">Download</a>
-        </div>
-    </header>
-    <div class="mx-auto py-20 max-w-2xl">
-        <img class="shadow transition-shadow duration-500 rounded hover:shadow-lg mb-10" src="img/cover.jpg" alt="Gulp with TailwindCSS">
-        <div class="instructions">
-            <div class="mb-20 text-gray-700">
-                <h4 class="sub-title">Usage</h4>
-                <p>Use the following commands to get started.</p>
-                <code class="code transform translate-x-[20px]">
-                    <em>// To Install Dev Depedencies</em><br/>
-                    npm install<br/><br/>
 
-                    <em>// To start development and server for live preview</em><br/>
-                    npm run dev<br/><br/>
+<body class="bg-white font-family-karla h-screen">
 
-                    <em>// To generate minifed,optamized files for production server</em><br/>
-                    npm run prod
-                </code>
+    <div class="w-full flex flex-wrap h-screen">
+
+        <!-- Login Section -->
+        <div
+            class="w-full md:w-1/2 lg:w-1/2 xl:w-2/5 flex flex-col relative plannet-login-section bg-white bg-plannet-login-mob bg-contain bg-no-repeat bg-bottom sm:bg-none">
+
+            <div
+                class="flex flex-col justify-center md:justify-start mt-14 md:my-auto pt-8 md:pt-0 px-8 md:px-24 lg:px-32">
+                <a href="#" class="p-4 mb-5"><img class="w-52 mx-auto" src="./img/logo_plannet.png" width="200"
+                        height="60"></a>
+                <p class="text-center text-2xl md:text-3xl text-plannet-purple">Ingresar al portal de pago.</p>
+                <form id="form-log" class="flex flex-col pt-3 md:pt-8" onsubmit="event.preventDefault();">
+                    <div class="flex flex-col pt-4">
+                        <label for="rut" class="text-lg text-plannet-purple">Rut del cliente</label>
+                        <input type="text" id="rut" placeholder="Ej: 1.111.111-1" onkeypress="return isNumber(event)"
+                            oninput="checkRut(this)" required
+                            class="appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight">
+                        <div id="alerta">
+                            <div id="mensaje" class="text-sm text-blue-500"></div>
+                        </div>
+                    </div>
+                    <div class="btn w-full mt-8 relative">
+                        <input type="submit" value="Buscar" id="submit"
+                            class="w-full bg-plannet-green text-white font-bold text-lg cursor-pointer px-2 h-12">
+                    </div>
+                </form>
             </div>
 
-            <div class="mb-10 text-gray-600">
-                    <h4 class="sub-title">Options</h4>
-                    <p>To change the path of files and destination/build folder configure at <b class="font-bold">config.js</b> file</p>
-                    <!-- Ignore the messay code :P only for demo -->
-<code class="code pre transform translate-x-[-20px]">config: {
-    ...
-    port: 9050 <em>//Update port here</em>
-},
-paths: {
-    root: "./",
-    src: {
-        base: "./src",
-        css: "./src/css",
-        js: "./src/js",
-        img: "./src/img"
-    },
-    dist: {
-        base: "./dist",
-        css: "./dist/css",
-        js: "./dist/js",
-        img: "./dist/img"
-    },
-    build: {
-        base: "./build",
-        css: "./build/css",
-        js: "./build/js",
-        img: "./build/img"
-    }
-}
-</code>
-                </div>
+            <!-- Whatsapp -->
+            <a href="https://api.whatsapp.com/send/?phone=56936954627&text&app_absent=0"
+                class="btn-wtsp absolute bottom-8 left-8 bg-plannet-green-dark py-2 px-5 flex items-center rounded-full"
+                target="_blank" rel="noopener">
+                <img src="./img/whatsapp.svg" width="25" height="25">
+                <span class="text-white text-lg ml-3">Contáctanos</span>
+            </a>
 
         </div>
 
-        <div class="social">
-            <p class="w-full text-center">Want to connect with me?</p>
-            <div class="flex justify-center space-x-6">
-                <a href="https://manjumjn.com">Website</a>
-                <a href="https://www.facebook.com/manjumjn">Facebook</a>
-                <a href="https://twitter.com/manju_mjn">Twitter</a>
-                <a href="mailto:manjumjng2@gmail.com">Email Me</a>
-            </div>
-        </div>
+        <!-- Image Section -->
+        <div class="hidden md:block md:w-1/2 xl:w-3/5 bg-plannet-welcome bg-cover"></div>
     </div>
 
+    <!-- Main Scripts -->
     <script src="./js/scripts.js"></script>
 
-    <!-- Demo Purpose -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-
 </body>
+
 </html>
